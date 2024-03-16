@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.mea.sbeans.SeasonFinder;
 
+
 @SpringBootApplication
 public class Application {
 
