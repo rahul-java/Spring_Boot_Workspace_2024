@@ -27,6 +27,7 @@ public class EmployeeDAOImpl implements IEmployeeDAO {
 	@Override
 	public List<Employee> getEmployeesByDesig(String desg1, String desg2, String desg3) throws Exception {
 
+		System.out.println("EmployeeDAOImpl.getEmployeesByDesig() :: "+ds.getClass());
 		List<Employee> list=new ArrayList<Employee>();
 		
 		//try with resource
