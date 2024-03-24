@@ -1,0 +1,50 @@
+spring:
+  profiles:
+    active: test
+---
+spring:
+ config:
+  activate:
+   on-profile: dev
+ datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    type: org.apache.commons.dbcp2.BasicDataSource
+    url: jdbc:mysql://localhost:3306/rahuldatabase
+    username: root      
+
+---
+spring:
+ config:
+  activate:
+   on-profile: test
+ datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    type: com.mchange.v2.c3p0.ComboPooledDataSource
+    url: jdbc:mysql://localhost:3306/rahuldatabase
+    username: root
+    
+---
+spring:
+ config:
+  activate:
+   on-profile: prod
+ datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    password: Manager
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: system    
+    
+---
+spring:
+ config:
+  activate:
+   on-profile: uat
+ datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    password: Manager
+    type: oracle.ucp.jdbc.PoolDataSourceImpl
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: system
+        
