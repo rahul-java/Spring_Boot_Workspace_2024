@@ -1,0 +1,48 @@
+
+spring:
+  application:
+    name: 09-SB-YML-Processing
+---
+#Employee Information
+org:
+   nic:
+      id: 1001
+      name: Rahul
+      address: Delhi
+      phone: 9999999999    
+---      
+
+com:
+ mea:
+  stud:
+    id: 10001
+    name: raja
+    address: Delhi
+    #for array
+    nickNames: 
+       - king
+       - maharaja
+       - raj
+       #for list
+    friends:
+       - mahesh
+       - rajesh
+       - rakesh
+       #for set
+    #phone-numbers:
+    #phone-numbers: [9199999999,8188888888,7177777777]    
+    phoneNumbers: 
+       - 9099999999
+       - 8088888888
+       - 7077777777
+       #for map  
+    id-details:      
+    #idDetails: 
+       aadhar: 787998874585
+       passport: 789789789
+       voterid: 789456789    
+       # HAS-A-PROPERTY  
+    college: 
+      code: 357951
+      name: IIT Delhi
+      location: Delhi NCR
