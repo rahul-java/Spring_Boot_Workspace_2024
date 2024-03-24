@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 
@@ -15,9 +16,14 @@ import com.mea.model.Employee;
 public class Application {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext ctx = SpringApplication.run(Application.class, args);
-		EmployeeOperationsController controller = ctx.getBean("empController",EmployeeOperationsController.class);
 		
+		//ConfigurableApplicationContext ctx = SpringApplication.run(Application.class, args);
+		
+		SpringApplication application = new SpringApplication(Application.class);
+		application.setAdditionalProfiles("test");
+		 ApplicationContext ctx=application.run(args);
+		
+		 EmployeeOperationsController controller = ctx.getBean("empController",EmployeeOperationsController.class);
 		//invoke the b.method
 		try {
 			List<Employee> list = controller.showEmployeesByDesgs("CLERK", "MANAGER", "SALESMAN");
@@ -29,7 +35,7 @@ public class Application {
 		System.out.println("=========================================");
 		Environment env=ctx.getEnvironment();
 		System.out.println("Current Profile Name ::: "+Arrays.toString(env.getActiveProfiles()));
-		ctx.close();
+		((ConfigurableApplicationContext) ctx).close();
 	}
 
 }
