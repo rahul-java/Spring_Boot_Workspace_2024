@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: 08-SB-MiniProject-Profiles-PropertiesFiles
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    type: org.apache.commons.dbcp2.BasicDataSource
+    url: jdbc:mysql://localhost:3306/rahuldatabase
+    username: root

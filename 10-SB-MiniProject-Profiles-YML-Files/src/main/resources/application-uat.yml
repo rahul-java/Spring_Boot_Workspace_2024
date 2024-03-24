@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: 08-SB-MiniProject-Profiles-PropertiesFiles
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    password: Manager
+    type: oracle.ucp.jdbc.PoolDataSourceImpl
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: system
