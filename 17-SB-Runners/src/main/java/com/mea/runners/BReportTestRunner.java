@@ -5,18 +5,14 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
-@Order(2)
-public class ReportTestRunner implements CommandLineRunner {
+@Order(30)
+public class BReportTestRunner implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
 
-		System.out.println("ReportTestRunner.run()");
-		for(String arg:args)
-		{
-			System.out.print(arg+"  ");
-		}
-		System.out.println();
+		System.out.println("BReportTestRunner.run()");
+		
 		System.out.println("------------------------------------");
 	}
 
