@@ -1,12 +1,13 @@
 package com.mea.runners;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
-@Order(2)
-public class ReportTestRunner implements CommandLineRunner {
+//@Order(2)
+public class ReportTestRunner implements CommandLineRunner, Ordered {
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -18,6 +19,11 @@ public class ReportTestRunner implements CommandLineRunner {
 		}
 		System.out.println();
 		System.out.println("------------------------------------");
+	}
+
+	@Override
+	public int getOrder() {
+		return 0;
 	}
 
 }
