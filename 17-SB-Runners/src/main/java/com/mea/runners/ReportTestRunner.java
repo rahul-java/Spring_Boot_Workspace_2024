@@ -23,7 +23,7 @@ public class ReportTestRunner implements CommandLineRunner, Ordered {
 
 	@Override
 	public int getOrder() {
-		return 0;
+		return 0; //Order Interface final priority value will be taken
 	}
 
 }
