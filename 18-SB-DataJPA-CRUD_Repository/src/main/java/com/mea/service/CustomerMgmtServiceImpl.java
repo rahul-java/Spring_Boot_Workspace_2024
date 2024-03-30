@@ -22,4 +22,9 @@ public class CustomerMgmtServiceImpl implements ICustomerMgmtService {
 		return "Customer is saved (record inserted) with the id value :: "+savedCust.getCno();
 	}
 
+	@Override
+	public boolean isCustomerAvailable(int id) {
+		return custRepo.existsById(id);
+	}
+
 }

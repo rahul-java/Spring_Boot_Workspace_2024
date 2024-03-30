@@ -16,7 +16,7 @@ public class CrudRepositoryTestRunner implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		try {
+		/*try {
 			Customer cust=new Customer();
 			cust.setCname("Rama");
 			cust.setCadd("New Delhi");
@@ -26,8 +26,13 @@ public class CrudRepositoryTestRunner implements CommandLineRunner {
 			System.out.println("Result ::: "+msg);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 		
+		try {
+			System.out.println("Is 100 id Customer Available ::: "+custService.isCustomerAvailable(100));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
