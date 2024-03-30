@@ -28,8 +28,14 @@ public class CrudRepositoryTestRunner implements CommandLineRunner {
 			e.printStackTrace();
 		}*/
 		
-		try {
+		/*try {
 			System.out.println("Is 100 id Customer Available ::: "+custService.isCustomerAvailable(100));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}*/
+		
+		try {
+			System.out.println("Customer Count ::: "+custService.showCustomersCount());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

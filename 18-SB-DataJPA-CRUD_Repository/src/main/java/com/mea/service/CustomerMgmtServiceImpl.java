@@ -27,4 +27,9 @@ public class CustomerMgmtServiceImpl implements ICustomerMgmtService {
 		return custRepo.existsById(id);
 	}
 
+	@Override
+	public long showCustomersCount() {
+		return custRepo.count();
+	}
+
 }
