@@ -18,7 +18,7 @@ public class CrudRepositoryTestRunner implements CommandLineRunner {
 
 		try {
 			Customer cust=new Customer();
-			cust.setCname("seeta");
+			cust.setCname("Rama");
 			cust.setCadd("New Delhi");
 			cust.setBillAmt(100000.00f);
 			
