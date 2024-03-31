@@ -1,6 +1,7 @@
 package com.mea.service;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,22 @@ public class CustomerMgmtServiceImpl implements ICustomerMgmtService {
 	@Override
 	public long showCustomersCount() {
 		return custRepo.count();
+	}
+
+	@Override
+	public Iterable<Customer> getAllCustomer() {
+		return custRepo.findAll();
+	}
+
+	@Override
+	public Iterable<Customer> getAllCustomerByIds(Iterable<Integer> ids) {
+		return custRepo.findAllById(ids);
+	}
+
+	@Override
+	public String registerGroupCustomer(List<Customer> custList) {
+		 Iterable<Customer> saveAll = custRepo.saveAll(custList);
+		 return custList.size()+" no. of records are inserted successfully...";
 	}
 
 }
