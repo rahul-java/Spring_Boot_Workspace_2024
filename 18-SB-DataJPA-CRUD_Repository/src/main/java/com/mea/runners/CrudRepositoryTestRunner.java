@@ -63,7 +63,7 @@ public class CrudRepositoryTestRunner implements CommandLineRunner {
 		}*/
 		
 		
-		try {
+		/*try {
 			Customer c1 = new Customer("john", "Hyd", 8999.99f);
 			Customer c2 = new Customer("Dev", "Bnglr", 18999.99f);
 			Customer c3 = new Customer("Vicky", "Dlh", 10999.99f);
@@ -71,6 +71,22 @@ public class CrudRepositoryTestRunner implements CommandLineRunner {
 			Customer c5 = new Customer("RAMA", "CKT", 49999.99f);
 			String registerGroupCustomer = custService.registerGroupCustomer(List.of(c1,c2,c3,c4,c5));
 			System.out.println(registerGroupCustomer);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}*/
+		
+		
+		/*try {
+			Customer customerById = custService.showCustomerById(201);
+			System.out.println(customerById);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}*/
+		
+		try {
+			Customer customer = new Customer(101,"Suresh","Mumbai",89000.50f);
+			String resultMsg = custService.registerOrUpdateCustomer(customer);
+			System.out.println(resultMsg);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

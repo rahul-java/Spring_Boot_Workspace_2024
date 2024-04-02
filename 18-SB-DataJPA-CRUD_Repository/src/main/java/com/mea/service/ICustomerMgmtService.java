@@ -12,4 +12,7 @@ public interface ICustomerMgmtService {
 	public Iterable<Customer> getAllCustomer();
 	public Iterable<Customer> getAllCustomerByIds(Iterable<Integer> ids);
 	public String registerGroupCustomer(List<Customer> custList);
+	
+	public Customer showCustomerById(Integer id);
+	public String registerOrUpdateCustomer(Customer customer);
 }
