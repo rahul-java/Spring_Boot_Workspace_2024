@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,5 +39,6 @@ public class Customer {
 	
 	@NonNull
 	@Column(name = "BILLAMT")
+	@Transient
 	private Float billAmt;
 }

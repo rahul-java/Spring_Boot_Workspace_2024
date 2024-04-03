@@ -93,4 +93,52 @@ public class CustomerMgmtServiceImpl implements ICustomerMgmtService {
 		}
 	}
 
+	@Override
+	public String updateCustomerAddress(Integer id, String newddress) {
+
+		Optional<Customer> optional = custRepo.findById(id);
+		if(optional.isPresent())
+		{
+			Customer customer = optional.get();
+			customer.setCadd(newddress);
+			custRepo.save(customer);
+			return id+" customer address is updated successfully.";
+		}
+		return id+" customer is not found for updation.";
+	}
+
+	@Override
+	public String removeCustomerById(Integer id) {
+		
+		Optional<Customer> optional = custRepo.findById(id);
+		if(optional.isPresent())
+		{
+			custRepo.deleteById(id);
+			return id+" customer is deleted Successfully.";
+		}
+
+		return id+" customer not found for deletion.";
+	}
+
+	@Override
+	public String removeCustomer(Customer customer) {
+
+		Optional<Customer> optional = custRepo.findById(customer.getCno());
+		if(optional.isPresent())
+		{
+			custRepo.delete(customer);
+			return customer.getCno()+" customer is deleted successfully.";
+		}
+		
+		return customer.getCno()+" customer is not found for deletion.";
+	}
+
+	@Override
+	public String removeAllCustomers() {
+
+		long count = custRepo.count();
+		custRepo.deleteAll();
+		
+		return count+" no. of records are deleted.";
+	}
 }

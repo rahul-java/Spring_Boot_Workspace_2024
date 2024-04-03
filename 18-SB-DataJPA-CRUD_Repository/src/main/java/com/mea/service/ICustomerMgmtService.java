@@ -15,4 +15,8 @@ public interface ICustomerMgmtService {
 	
 	public Customer showCustomerById(Integer id);
 	public String registerOrUpdateCustomer(Customer customer);
+	public String updateCustomerAddress(Integer id,String newAddress);
+	public String removeCustomerById(Integer id);
+	public String removeCustomer(Customer customer);
+	public String removeAllCustomers();
 }

@@ -20,7 +20,7 @@ public class CrudRepositoryTestRunner implements CommandLineRunner {
 
 		/*try {
 			Customer cust=new Customer();
-			cust.setCname("Rama");
+			cust.setCname("Raja");
 			cust.setCadd("New Delhi");
 			cust.setBillAmt(100000.00f);
 			
@@ -83,10 +83,42 @@ public class CrudRepositoryTestRunner implements CommandLineRunner {
 			e.printStackTrace();
 		}*/
 		
-		try {
+		/*try {
 			Customer customer = new Customer(101,"Suresh","Mumbai",89000.50f);
 			String resultMsg = custService.registerOrUpdateCustomer(customer);
 			System.out.println(resultMsg);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}*/
+		
+		
+		/*try {
+			String resMsg = custService.updateCustomerAddress(102, "West Vinod Nagar, Delhi");
+			System.out.println(resMsg);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}*/
+		
+		
+		/*try {
+			String resMsg = custService.removeCustomerById(107);
+			System.out.println(resMsg);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}*/
+		
+		/*try {
+		
+			Customer customer=new Customer(102,"raja","Hyd",8999.99f);
+			String resMsg = custService.removeCustomer(customer);
+			System.out.println(resMsg);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}*/
+		
+		try {
+			String resMsg = custService.removeAllCustomers();
+			System.out.println(resMsg);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
