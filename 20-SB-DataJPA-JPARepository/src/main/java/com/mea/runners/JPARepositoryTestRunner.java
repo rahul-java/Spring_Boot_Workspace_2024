@@ -13,7 +13,7 @@ import com.mea.entity.Customer;
 import com.mea.service.ICustomerMgmtService;
 
 @Component
-public class CrudRepositoryTestRunner implements CommandLineRunner {
+public class JPARepositoryTestRunner implements CommandLineRunner {
 
 	@Autowired
 	private ICustomerMgmtService custService;
