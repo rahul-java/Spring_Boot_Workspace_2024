@@ -1,5 +1,6 @@
 package com.mea.service;
 
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import com.mea.entity.Person;
 import com.mea.entity.PhoneNumber;
 import com.mea.repository.IPersonRepository;
 import com.mea.repository.IPhoneNumberRepository;
+
+import jakarta.persistence.FetchType;
 
 @Service("oTmService")
 public class OneToManyMgmtServiceImpl implements IOneToManyMgmtService {
@@ -65,5 +68,53 @@ public class OneToManyMgmtServiceImpl implements IOneToManyMgmtService {
 			});		
 			System.out.println("------------------------------------------------------------------");
 		});
+	}
+	
+	@Override
+	public String removeDataByParent(int pid) {
+		//load the parent
+		Optional<Person> optional=personRepo.findById(pid);
+		if(optional.isPresent())
+		{
+			//personRepo.deleteById(pid);
+			Person person = optional.get();
+			personRepo.delete(person);
+			return "Parent Object and its associated Child Objects are deleted Successfuly.";
+		}
+		return ":::::ERROR::::: No Parent Object found for deletion";
+	}
+	
+	@Override
+	public String removeAllChildsOfTheParent(int pid) {
+
+		Optional<Person> optional=personRepo.findById(pid);
+		if(optional.isPresent())
+		{
+			Person person = optional.get();
+			Set<PhoneNumber> childs = person.getContactDetails();
+			childs.forEach(phone->{
+				phone.setPerson(null);
+			});
+			phoneRepo.deleteAllInBatch(childs);
+			return "Only the childs of a Parent are deleted Successfuly.";
+		}
+		return ":::::ERROR::::: No Parent Object found for deletion";
+	}
+	
+	@Override
+	public String addNewChildToExistingParent(int pid) {
+
+		Optional<Person> optional=personRepo.findById(pid);
+		if(optional.isPresent())
+		{
+			Person person = optional.get();
+			Set<PhoneNumber> childs = person.getContactDetails();
+			PhoneNumber phone1=new PhoneNumber(7777777000L,"residence","vi");
+			phone1.setPerson(person);
+			childs.add(phone1);
+			Person savedPerson = personRepo.save(person); //FetchType.EAGER must required
+			return "New Child is added to the existing Parent Successfuly.";
+		}
+		return ":::::ERROR::::: No Parent Object found for New Child insertion";
 	}
 }

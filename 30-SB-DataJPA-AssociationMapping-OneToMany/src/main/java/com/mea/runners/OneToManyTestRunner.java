@@ -15,11 +15,20 @@ public class OneToManyTestRunner implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		//String resMsg = oTmService.saveDataUsingParentToChild();
-		//String resMsg = oTmService.saveDataUsingChildToParent();
-		//System.out.println(resMsg);
+		//String resMsg1 = oTmService.saveDataUsingParentToChild();
+		//System.out.println(resMsg1);
+		//String resMsg2 = oTmService.saveDataUsingChildToParent();
+		//System.out.println(resMsg2);
 		
-		oTmService.loadDataUsingParent();
+		//oTmService.loadDataUsingParent();
+		
+		//String resMsg3 = oTmService.removeDataByParent(10);
+		//System.out.println(resMsg3);
+		
+		//Deleting the childs of the Parent
+		//System.out.println(oTmService.removeAllChildsOfTheParent(102));
+		
+		System.out.println(oTmService.addNewChildToExistingParent(102));
 	}
 
 }
