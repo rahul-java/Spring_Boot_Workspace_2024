@@ -19,8 +19,8 @@ public class TwoDBsMgmtServiceImpl implements ITwoDBsMgmtService {
 	@Override
 	public String saveData(Product product, Promotions promotions) {
 
-		Integer pid = productRepo.save(product).getPid();
 		Long prid = promotionsRepo.save(promotions).getPrid();
+		Integer pid = productRepo.save(product).getPid();
 		
 		return "Product and Promotions are saved in two difft DBs having values pid:"+pid+" , prid:"+prid;
 	}
