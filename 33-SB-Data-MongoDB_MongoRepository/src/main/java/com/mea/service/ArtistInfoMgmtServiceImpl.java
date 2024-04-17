@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.mea.document.ArtistInfo;
@@ -64,6 +66,21 @@ public class ArtistInfoMgmtServiceImpl implements IArtistInfoMgmtService {
 			return id+" is found and deleted.";
 		}
 		return id+" is not FOUND for deletion...";
+	}
+	
+	@Override
+	public List<ArtistInfo> showAllArtistInfoBySorting(Boolean asc, String... properties) {
+		Sort sort=Sort.by(asc?Direction.ASC:Direction.DESC, properties);
+		List<ArtistInfo> list = artistRepo.findAll(sort);
+		return list;
+	}
+	
+	@Override
+	public String insertArtistInfo(ArtistInfo artistInfo) {
+
+		String id = artistRepo.insert(artistInfo).getId();
+		
+		return " ArtistInfo document is saved having id value :"+id;
 	}
 
 }

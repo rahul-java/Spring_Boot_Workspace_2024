@@ -29,6 +29,6 @@ public class ArtistInfo {
 	@NonNull
 	private LocalDateTime dob;
 	@NonNull
-	private boolean isMarried;
+	private Boolean isMarried;
 	
 }
