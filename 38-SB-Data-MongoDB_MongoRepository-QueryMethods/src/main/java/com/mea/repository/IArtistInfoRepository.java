@@ -2,6 +2,7 @@ package com.mea.repository;
 
 import java.util.List;
 
+import org.springframework.data.mongodb.core.aggregation.ArithmeticOperators.Trunc;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
@@ -39,4 +40,17 @@ public interface IArtistInfoRepository extends MongoRepository<ArtistInfo, Strin
 	//@Query(value = "{name:{'$regex':?0,'$options':'i'}}")  //'i' for disabling case-sensitivity 'r/R'=> like '%initialChars%'
 	@Query(value = "{name:{'$regex':?0}}")  //this is case-sensitivity 'r'=> like '%initialChars%'
 	public List<ArtistInfo> getArtistDataByNameInitialChars(String initialChars);
+	
+	//@Query(fields = "{}",value = "{remuneration:{$gte:?0},remuneration:{$lte:?1}}", count = true)  //OR
+	@Query(fields = "{}",value = "{remuneration:{$gte:?0,$lte:?1}}", count = true)  //AND
+	public int getArtistAllDataByRemunerationCount(double start,double end);
+	
+	@Query(fields = "{}",value = "{}",sort = "{name:1}")  //-1=>Descending , 1=>Ascending
+	public List<ArtistInfo> getArtistAllDataSortedByName();
+	
+	@Query(fields = "{}",value = "{category:null}",delete = true) //Delete records
+	public int removeArtistWithNoCategory();
+	
+	@Query(fields = "{}",value = "{remuneration:{$gte:?0,$lte:?1}}", exists = true)  //Exist or not
+	public boolean isArtistDataGivenByRemunerationExistOrNot(double start,double end);
 }

@@ -42,11 +42,31 @@ public class MongoRepositoryQueryMethodTestRunner implements CommandLineRunner {
 				System.out.println(Arrays.toString(row));
 			});
 			
-			System.out.println("------------------------------Regular Expression regex---------------------------------------------------");
-			artistRepo.getArtistDataByNameInitialChars("r").forEach(System.out::println);
+			System.out.println("\n\n\n\n------------------------------Regular Expression regex-----------containing given data----------------------------------------");
+			artistRepo.getArtistDataByNameInitialChars("r").forEach(System.out::println); //containing given data
+			
+			System.out.println("------------------------------Regular Expression regex------starting with given data---------------------------------------------");
+			artistRepo.getArtistDataByNameInitialChars("^r").forEach(System.out::println); //starting with given data
+			
+			System.out.println("------------------------------Regular Expression regex------ending with given data---------------------------------------------");
+			artistRepo.getArtistDataByNameInitialChars("a$").forEach(System.out::println); //ending with given data
+			
+			System.out.println("\n=================================Count Records=============================================");
+			System.out.println("Count Of Records By Salary Range ::: "+artistRepo.getArtistAllDataByRemunerationCount(500000.0, 1000000.0));
+			
+			System.out.println("\n=================================Sorting By Name=============================================");
+			artistRepo.getArtistAllDataSortedByName().forEach(System.out::println);
+			
+			System.out.println("\n=================================Delete Records=============================================");
+			System.out.println("Delete Artist whose category is null ::: "+artistRepo.removeArtistWithNoCategory()+" record is deleted successfully..");
+			
+			System.out.println("\n=================================Artist Records Exist or not=============================================");
+			System.out.println("Artist Records Exist or not ::: "+artistRepo.isArtistDataGivenByRemunerationExistOrNot(1000000.0, 2000000.0));
+			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+
+			e.printStackTrace();
 		}
 	}
 
