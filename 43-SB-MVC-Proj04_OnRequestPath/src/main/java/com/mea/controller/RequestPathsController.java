@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@Controller
+//@Controller
 public class RequestPathsController {
 	
 	/*@RequestMapping("/")
@@ -15,11 +15,11 @@ public class RequestPathsController {
 		return "welcome";
 	}*/
 	
-	@RequestMapping
+	/*@RequestMapping
 	public String showHomePage() {
 		
 		return "welcome";
-	}
+	}*/
 	
 	/*@RequestMapping("/report")
 	public String showReport1() {
@@ -47,9 +47,29 @@ public class RequestPathsController {
 	}
 	
 	//@RequestMapping(value =  "/report",method = RequestMethod.POST)
+	//ALLOWED with same request mapping but different mode GET/POST
 	@PostMapping("/report")
 	public String showReport2() {
 		System.out.println("RequestPathsController.showReport2()");
 		return "report2";
+	}
+	
+	//NOT ALLOWED , it will throw exception
+	/*@GetMapping("/report")
+	public String showReport2() {
+		System.out.println("RequestPathsController.showReport2()");
+		return "report2";
+	}*/
+	
+	@GetMapping
+	public String showHomePage1() {
+		System.out.println("RequestPathsController.showHomePage1()");
+		return "welcome";
+	}
+	
+	@PostMapping
+	public String showHomePage2() {
+		System.out.println("RequestPathsController.showHomePage2()");
+		return "welcome";
 	}
 }

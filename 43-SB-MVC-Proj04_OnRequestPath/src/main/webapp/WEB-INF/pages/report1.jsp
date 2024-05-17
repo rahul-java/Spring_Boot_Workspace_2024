@@ -8,5 +8,12 @@
 </head>
 <body>
 <h1 style="color:green;text-align:center;">Welcome to Report-1</h1>
+
+<a href="./">Go-To-Home(GET)</a>
+<br><br>
+<form action="./" method="POST">
+ <input type="submit" value="HOME(POST)">
+</form>
+
 </body>
 </html>
