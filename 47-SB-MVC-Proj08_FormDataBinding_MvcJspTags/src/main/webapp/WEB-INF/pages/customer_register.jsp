@@ -14,6 +14,11 @@
 <h1 style="color:green;text-align:center">Customer Registration Form</h1>
 
 <frm:form action="register" method="POST" modelAttribute="cust">
+<!-- byDefault method of form tag is POST not necessary to declare it -->
+<%-- <frm:form action="register" modelAttribute="cust"> --%>
+<!-- if action is not defined then it will take as same url on which this form is launched -->
+<%-- <frm:form modelAttribute="cust"> --%>
+
 <table align="center" bgcolor="cyan">
   <tr>
     <td> Customer Id:</td>
