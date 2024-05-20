@@ -15,7 +15,14 @@ public class EmployeeMgmtServiceImpl implements IEmployeeMgmtService {
 	@Override
 	public Iterable<Employee> showAllEmployee() {
 
-		return null;
+		return empRepo.findAll();
+	}
+
+	@Override
+	public String registerEmployee(Employee emp) {
+
+		Employee save = empRepo.save(emp);
+		return "Employee Record is inserted with id value :"+save.getEmpNo();
 	}
 
 }

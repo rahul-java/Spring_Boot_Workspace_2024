@@ -18,7 +18,7 @@ public class Employee {
 	@GeneratedValue(generator = "gen1", strategy = GenerationType.SEQUENCE)
 	private Integer empNo;
 	private String empName;
-	private String job;
+	private String job="CLERK";
 	private Double salary;
 	private Integer deptNo;
 }

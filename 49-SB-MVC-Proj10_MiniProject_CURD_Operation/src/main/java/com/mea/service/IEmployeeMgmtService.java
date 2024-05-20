@@ -5,4 +5,5 @@ import com.mea.entity.Employee;
 public interface IEmployeeMgmtService {
 
 	public Iterable<Employee> showAllEmployee();
+	public String registerEmployee(Employee emp);
 }

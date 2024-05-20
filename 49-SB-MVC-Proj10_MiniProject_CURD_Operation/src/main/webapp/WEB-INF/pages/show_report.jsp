@@ -17,7 +17,7 @@
     <c:forEach var="emp" items="${empList }">
     <tr>
       <td>${emp.empNo }</td>
-      <td>${emp.empempName }</td>
+      <td>${emp.empName }</td>
       <td>${emp.job }</td>
       <td>${emp.salary }</td>
       <td>${emp.deptNo }</td>
@@ -29,5 +29,7 @@
     <h1 style="color:red;text-align:center">Records Not Found</h1>
   </c:otherwise>
 </c:choose>
-<br><br>
-<h1 style="color:blue;text-align:center"><a href="./"><img src="images/home5.jpg" width="50px" height="50px"/></a></h1>
+<center><h4 style="color:green;">${resultMsg }</h4></center>
+<br>
+<h1 style="color:blue;text-align:center"><a href="./">Home_Page<img src="images/home5.jpg" width="50px" height="50px"/></a></h1>
+<h1 style="color:blue;text-align:center"><a href="register">Register_Here<img src="images/add1.jpg" width="50px" height="50px"/></a></h1>
