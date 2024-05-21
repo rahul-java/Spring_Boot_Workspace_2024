@@ -13,6 +13,7 @@
       <th>Job</th>
       <th>Salary</th>
       <th>Dept</th>
+      <th>Operations</th>
     </tr>
     <c:forEach var="emp" items="${empList }">
     <tr>
@@ -21,6 +22,12 @@
       <td>${emp.job }</td>
       <td>${emp.salary }</td>
       <td>${emp.deptNo }</td>
+      <td>
+       <a href="edit?id=${emp.empNo }"><img src="images/edit6.png" width="25px" height="25px"> </a>
+       &nbsp;&nbsp;
+       <a href="delete?id=${emp.empNo }" onclick="return confirm('ARE YOU SURE TO DELETE THIS EMPLOYEE ?')"><img src="images/delete1.png" width="25px" height="25px"> </a>
+      
+      </td>
     </tr>
    </c:forEach>
    </table>

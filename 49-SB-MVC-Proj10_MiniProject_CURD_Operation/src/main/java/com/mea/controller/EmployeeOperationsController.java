@@ -3,11 +3,13 @@ package com.mea.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mea.entity.Employee;
@@ -41,6 +43,7 @@ public class EmployeeOperationsController {
 		return "emp_registration_form";
 	}
 
+	//Double-POSTING Problem occurred here
 	/*@PostMapping("/register")
 	public String registerEmployee(Map<String, Object> map, @ModelAttribute("emp") Employee emp) {
 		String resultMsg = empService.registerEmployee(emp);
@@ -77,5 +80,26 @@ public class EmployeeOperationsController {
 			return "redirect:report"; //PRG pattern support
 		}*/
 	
+	@GetMapping("/edit")
+	public String showEditForm(@RequestParam("id")Integer id,@ModelAttribute("emp")Employee emp) {
+		Employee employee=empService.fetchEmployeeById(id);
+		//Copy employee obj data to emp.
+		BeanUtils.copyProperties(employee, emp);
+		return "employee_edit_form";
+	}
 	
+	@PostMapping("/edit")
+	public String editEmployee(@ModelAttribute("emp")Employee emp,RedirectAttributes redirect) {
+		String resultMsg = empService.updateEmployee(emp);
+		redirect.addFlashAttribute("resultMsg",resultMsg);
+		return "redirect:report";
+	}
+	
+	@GetMapping("/delete")
+	public String deleteEmployee(@RequestParam("id")Integer id,RedirectAttributes redirect) {
+
+		String resultMsg = empService.deleteEmployeeById(id);
+		redirect.addFlashAttribute("resultMsg",resultMsg);
+		return "redirect:report";
+	}
 }
