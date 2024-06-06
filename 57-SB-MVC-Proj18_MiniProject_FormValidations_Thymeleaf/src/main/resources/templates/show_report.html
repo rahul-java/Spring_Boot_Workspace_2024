@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<h1 style="color: blue; text-align: center">Report Page</h1>
+
+
+<div th:if="${!empList.empty}">
+	<table border="1" align="center" bgcolor="cyan">
+
+		<tr>
+			<th>EmpNo</th>
+			<th>EmpName</th>
+			<th>Job</th>
+			<th>Salary</th>
+			<th>Dept</th>
+			<th>Operations</th>
+		</tr>
+		<tr th:each="emp:${empList}">
+			<td><span th:text="${emp.empNo }" /></td>
+			<td><span th:text="${emp.empName }" /></td>
+			<td><span th:text="${emp.job }" /></td>
+			<td><span th:text="${emp.salary }" /></td>
+			<td><span th:text="${emp.deptNo }" /></td>
+			<td><a th:href="@{/employee/edit(id=${emp.empNo})}"><img
+					th:src="@{/images/edit6.png}" width="25px" height="25px"> </a>
+				&nbsp;&nbsp; <a th:href="@{/employee/delete(id=${emp.empNo })}"
+				onclick="return confirm('ARE YOU SURE TO DELETE THIS EMPLOYEE ?')"><img
+					th:src="@{/images/delete1.png}" width="25px" height="25px"> </a></td>
+		</tr>
+	</table>
+</div>
+<div th:if="${empList.empty}">
+	<h1 style="color: red; text-align: center">Records Not Found</h1>
+</div>
+<center>
+	<h4 style="color: green;"><span th:text="${resultMsg }" /></h4>
+</center>
+<br>
+<h1 style="color: blue; text-align: center">
+	<a th:href="@{/employee/}">Home_Page<img th:src="@{/images/home5.jpg}" width="50px"
+		height="50px" /></a>
+</h1>
+<h1 style="color: blue; text-align: center">
+	<a th:href="@{/employee/register}">Register_Here<img th:src="@{/images/add1.jpg}"
+		width="50px" height="50px" /></a>
+</h1>

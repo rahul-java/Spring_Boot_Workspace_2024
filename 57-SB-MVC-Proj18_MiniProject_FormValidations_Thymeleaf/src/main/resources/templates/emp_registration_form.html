@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+ ul {
+      text-align: center;
+      list-style-position: inside;
+    }
+</style>
+<h1 style="color:green;text-align:center">Employee Registration Form</h1>
+
+<div>
+  <form th:action="@{/employee/register}" method="POST" th:object="${emp}">
+  <div th:if="${#fields.hasAnyErrors()}" style="text-align:center;color:red;">
+    <ul>
+        <li th:each="err : ${#fields.allErrors()}" th:text="${err}" class="error" />
+    </ul>
+</div>
+    <table align="center" bgcolor="cyan">
+     <!-- <tr>
+       <td>Employee No :</td>
+       <td><input type="text" th:field="*{empNo}"/> </td>
+     </tr> -->
+     <tr>
+       <td>Employee Name :</td>
+       <td><input type="text" th:field="*{empName}"/> </td>
+     </tr>
+     <tr>
+       <td>Employee Design :</td>
+       <td><input type="text" th:field="*{job}"/> </td>
+     </tr>
+     <tr>
+       <td>Employee Salary :</td>
+       <td><input type="text" th:field="*{salary}"/> </td>
+     </tr>
+     <tr>
+       <td>Employee Dept :</td>
+       <td><input type="text" th:field="*{deptNo}"/> </td>
+     </tr>
+     
+      <tr>
+       <td><input type="submit" value="Register"/></td>
+        <td><input type="reset" value="Cancel"/></td>
+     </tr>
+    
+    </table>
+  </form>
+</div>
