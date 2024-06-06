@@ -5,6 +5,9 @@
 
 <div>
   <frm:form modelAttribute="emp">
+   <p style="text-align:center;color:red;">
+   <frm:errors path="*" />
+  </p>
     <table align="center" bgcolor="cyan">
      <tr>
        <td>Employee No :</td>
