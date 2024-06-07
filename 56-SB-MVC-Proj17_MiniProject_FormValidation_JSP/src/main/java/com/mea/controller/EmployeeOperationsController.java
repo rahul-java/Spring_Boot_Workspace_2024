@@ -1,6 +1,5 @@
 package com.mea.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.BeanUtils;
@@ -10,15 +9,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mea.entity.Employee;
 import com.mea.service.IEmployeeMgmtService;
 import com.mea.validator.EmployeeValidator;
-
-import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class EmployeeOperationsController {
@@ -74,12 +70,12 @@ public class EmployeeOperationsController {
 
 		System.out.println("EmployeeOperationsController.registerEmployee()");
 
-		// perform form validation
+		/*// perform form validation
 		if (empValidator.supports(emp.getClass())) {
 			empValidator.validate(emp, errors);
 			if (errors.hasErrors())
 				return "emp_registration_form";
-		}
+		}*/
 
 		String resultMsg = empService.registerEmployee(emp);
 		map.addFlashAttribute("resultMsg", resultMsg);
@@ -107,12 +103,13 @@ public class EmployeeOperationsController {
 	public String editEmployee(@ModelAttribute("emp") Employee emp, RedirectAttributes redirect,
 			BindingResult errors) {
 
-		// perform form validation
+		/*// perform form validation
 		if (empValidator.supports(emp.getClass())) {
 			empValidator.validate(emp, errors);
 			if (errors.hasErrors())
 				return "employee_edit_form";
-		}
+		}*/
+		
 		String resultMsg = empService.updateEmployee(emp);
 		redirect.addFlashAttribute("resultMsg", resultMsg);
 		return "redirect:report";
