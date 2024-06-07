@@ -21,4 +21,6 @@ public class Employee {
 	private String job="CLERK";
 	private Double salary;
 	private Integer deptNo;
+	
+	private String csvStatus="disabled";
 }

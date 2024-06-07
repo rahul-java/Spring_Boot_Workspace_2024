@@ -51,5 +51,8 @@
      </tr>
     
     </table>
+    
+    <frm:hidden path="csvStatus"/>
+    <%-- <frm:input type="hidden" path="csvStatus"/> --%>
   </frm:form>
 </div>

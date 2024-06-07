@@ -70,12 +70,18 @@ public class EmployeeOperationsController {
 
 		System.out.println("EmployeeOperationsController.registerEmployee()");
 
-		/*// perform form validation
-		if (empValidator.supports(emp.getClass())) {
-			empValidator.validate(emp, errors);
-			if (errors.hasErrors())
-				return "emp_registration_form";
-		}*/
+		//enable server side validation only if client side validation are not done
+		if(emp.getCsvStatus().equalsIgnoreCase("disabled"))
+		{
+			// perform form validation
+			if (empValidator.supports(emp.getClass())) {
+				empValidator.validate(emp, errors);
+				if (errors.hasErrors())
+					return "emp_registration_form";
+			}
+		}
+		
+		
 
 		String resultMsg = empService.registerEmployee(emp);
 		map.addFlashAttribute("resultMsg", resultMsg);
@@ -103,12 +109,16 @@ public class EmployeeOperationsController {
 	public String editEmployee(@ModelAttribute("emp") Employee emp, RedirectAttributes redirect,
 			BindingResult errors) {
 
-		/*// perform form validation
-		if (empValidator.supports(emp.getClass())) {
-			empValidator.validate(emp, errors);
-			if (errors.hasErrors())
-				return "employee_edit_form";
-		}*/
+		//enable server side validation only if client side validation are not done
+		if(emp.getCsvStatus().equalsIgnoreCase("disabled"))
+		{
+			// perform form validation
+			if (empValidator.supports(emp.getClass())) {
+				empValidator.validate(emp, errors);
+				if (errors.hasErrors())
+					return "emp_registration_form";
+			}
+		}
 		
 		String resultMsg = empService.updateEmployee(emp);
 		redirect.addFlashAttribute("resultMsg", resultMsg);

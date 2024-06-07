@@ -11,11 +11,13 @@ public class EmployeeValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> clazz) {
+		System.out.println("EmployeeValidator.supports()");
 		return clazz.isAssignableFrom(Employee.class);
 	}
 
 	@Override
 	public void validate(Object model, Errors errors) {
+		System.out.println("EmployeeValidator.validate()");
 		Employee emp=(Employee)model;
 		
 		if(emp.getEmpName()==null || emp.getEmpName().equals("") || emp.getEmpName().length()==0) //required rules

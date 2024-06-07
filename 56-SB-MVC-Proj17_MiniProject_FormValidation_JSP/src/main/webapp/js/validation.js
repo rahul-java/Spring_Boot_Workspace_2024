@@ -55,5 +55,8 @@ function validate(frm) {
 		vflag = false;
 	}
 	
+	//change the hidden box value 'enabled' 
+	frm.csvStatus.value="enabled";
+	
 	return vflag;
 }
