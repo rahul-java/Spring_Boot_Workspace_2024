@@ -64,7 +64,7 @@ public class ReportGenerateService {
 		System.out.println(":::::::::::============END===============::::::::::::"+new Date());
 	}*/
 	
-	@Scheduled(fixedRate =  10000) //fixedRate is nothing but maximum time
+	/*@Scheduled(fixedRate =  10000) //fixedRate is nothing but maximum time
 	public void generateReport() {
 		System.out.println("ReportGenerateService.generateReport() ::: Sales Report on:"+new Date());
 		
@@ -75,5 +75,17 @@ public class ReportGenerateService {
 		}
 		
 		System.out.println(":::::::::::============END===============::::::::::::"+new Date());
+	}*/
+	
+	@Scheduled(fixedDelay = 3000)
+	public void generateReport1() {
+		System.out.println("ReportGenerateService.generateReport1() ::: Sales Report on:"+new Date()+" Started... Thread Name :::"+Thread.currentThread().getName());
+		System.out.println("--------------------------------------------");
+	}
+	
+	@Scheduled(fixedDelay = 3000)
+	public void generateReport2() {
+		System.out.println("ReportGenerateService.generateReport2() ::: Sales Report on:"+new Date()+" Started... Thread Name :::"+Thread.currentThread().getName());
+		System.out.println("=================================================");
 	}
 }
