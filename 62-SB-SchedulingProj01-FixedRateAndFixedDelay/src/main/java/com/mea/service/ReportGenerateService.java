@@ -263,15 +263,21 @@ public class ReportGenerateService {
 		// Sun Jun 23 10:19:09 IST 2024
 	}*/
 
-	
-	//Execute the given task starting at 5 pm having 20min gap in every hour and 15 sec gap in that gap min
+	// Execute the given task starting at 5 pm having 20min gap in every hour and 15
+	// sec gap in that gap min
 	/*@Scheduled(cron = "0/15 0/20 17 * * *")
 	public void generateReport1() {
 		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
 	}*/
-	
-	//Execute task for every 10days at 6pm
-	@Scheduled(cron = "0 0 18 1/10 * *")
+
+	// Execute task for every 10days at 6pm
+	/*@Scheduled(cron = "0 0 18 1/10 * *")
+	public void generateReport1() {
+		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
+	}*/
+
+	// Execute task for every 15 days at 7pm 30min 20sec
+	@Scheduled(cron = "20 30 19 1/15 * *")
 	public void generateReport1() {
 		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
 	}
