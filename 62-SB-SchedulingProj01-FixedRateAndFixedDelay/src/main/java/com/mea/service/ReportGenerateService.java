@@ -212,8 +212,26 @@ public class ReportGenerateService {
 	// ? :: is used for any WeekDay for WeekDay Column
 	// ? can be used in place of * for any
 	// Execute task on any weekday of the Nov month having weekday Sun-Thu
-	@Scheduled(cron = "0 0 10 ? 11 SUN-THU")
+	/*@Scheduled(cron = "0 0 10 ? 11 SUN-THU")
 	public void generateReport1() {
 		System.out.println("Daily Task ::: " + new Date());
+	}*/
+
+	// 0/20 => inital time 0 and delay time 20
+	/*@Scheduled(cron = "0/20 * * * * *")
+	public void generateReport1() {
+		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
+		//Sun Jun 23 16:10:00 IST 2024
+		//Sun Jun 23 16:10:20 IST 2024
+		//Sun Jun 23 16:10:40 IST 2024
+		//Sun Jun 23 16:11:00 IST 2024
+	}*/
+
+	// every hour start at 0 min 10 sec and repeat after every 15 min delay
+	@Scheduled(cron = "10 0/15 * * * *")
+	public void generateReport1() {
+		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
+		// Sun Jun 23 16:00:10 IST 2024
+		// Sun Jun 23 16:15:10 IST 2024
 	}
 }
