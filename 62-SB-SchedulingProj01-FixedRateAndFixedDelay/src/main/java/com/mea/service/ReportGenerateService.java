@@ -228,10 +228,38 @@ public class ReportGenerateService {
 	}*/
 
 	// every hour start at 0 min 10 sec and repeat after every 15 min delay
-	@Scheduled(cron = "10 0/15 * * * *")
+	/*@Scheduled(cron = "10 0/15 * * * *")
 	public void generateReport1() {
 		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
 		// Sun Jun 23 16:00:10 IST 2024
 		// Sun Jun 23 16:15:10 IST 2024
+	}*/
+	
+	/*@Scheduled(cron = "0/20 0/30 10 * * *")
+	public void generateReport1() {
+		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
+		// Sun Jun 23 10:00:00 IST 2024
+		// Sun Jun 23 10:00:20 IST 2024
+		// Sun Jun 23 10:00:40 IST 2024
+		// Sun Jun 23 10:30:00 IST 2024
+		// Sun Jun 23 10:30:20 IST 2024
+		// Sun Jun 23 10:30:40 IST 2024
+	}*/
+	
+	@Scheduled(cron = "4/5 9/10 10 * * *")
+	public void generateReport1() {
+		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
+		// Sun Jun 23 10:09:04 IST 2024
+		// Sun Jun 23 10:09:09 IST 2024
+		// Sun Jun 23 10:09:14 IST 2024
+		// Sun Jun 23 10:09:19 IST 2024
+		// Sun Jun 23 10:09:24 IST 2024
+		// Sun Jun 23 10:09:29 IST 2024
+		// Sun Jun 23 10:09:34 IST 2024
+		// Sun Jun 23 10:09:39 IST 2024
+		// Sun Jun 23 10:09:54 IST 2024
+		// Sun Jun 23 10:09:59 IST 2024
+		// Sun Jun 23 10:19:04 IST 2024
+		// Sun Jun 23 10:19:09 IST 2024
 	}
 }
