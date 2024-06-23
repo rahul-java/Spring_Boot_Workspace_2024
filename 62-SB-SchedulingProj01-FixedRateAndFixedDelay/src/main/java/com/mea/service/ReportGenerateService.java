@@ -234,7 +234,7 @@ public class ReportGenerateService {
 		// Sun Jun 23 16:00:10 IST 2024
 		// Sun Jun 23 16:15:10 IST 2024
 	}*/
-	
+
 	/*@Scheduled(cron = "0/20 0/30 10 * * *")
 	public void generateReport1() {
 		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
@@ -245,8 +245,8 @@ public class ReportGenerateService {
 		// Sun Jun 23 10:30:20 IST 2024
 		// Sun Jun 23 10:30:40 IST 2024
 	}*/
-	
-	@Scheduled(cron = "4/5 9/10 10 * * *")
+
+	/*@Scheduled(cron = "4/5 9/10 10 * * *")
 	public void generateReport1() {
 		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
 		// Sun Jun 23 10:09:04 IST 2024
@@ -261,5 +261,18 @@ public class ReportGenerateService {
 		// Sun Jun 23 10:09:59 IST 2024
 		// Sun Jun 23 10:19:04 IST 2024
 		// Sun Jun 23 10:19:09 IST 2024
+	}*/
+
+	
+	//Execute the given task starting at 5 pm having 20min gap in every hour and 15 sec gap in that gap min
+	/*@Scheduled(cron = "0/15 0/20 17 * * *")
+	public void generateReport1() {
+		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
+	}*/
+	
+	//Execute task for every 10days at 6pm
+	@Scheduled(cron = "0 0 18 1/10 * *")
+	public void generateReport1() {
+		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
 	}
 }
