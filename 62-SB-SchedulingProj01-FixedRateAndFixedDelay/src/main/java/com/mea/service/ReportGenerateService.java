@@ -277,7 +277,25 @@ public class ReportGenerateService {
 	}*/
 
 	// Execute task for every 15 days at 7pm 30min 20sec
-	@Scheduled(cron = "20 30 19 1/15 * *")
+	/*@Scheduled(cron = "20 30 19 1/15 * *")
+	public void generateReport1() {
+		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
+	}*/
+
+	// Execute task only on Sunday at 10am
+	/*@Scheduled(cron = "0 0 10 * * SUN")
+	public void generateReport1() {
+		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
+	}*/
+
+	// Execute task only on WeekEnd every hour
+	/*@Scheduled(cron = "0 0 * * * SAT-SUN")
+	public void generateReport1() {
+		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
+	}*/
+	
+	// Generate BankAccount Stmt for 3months at 11am
+	@Scheduled(cron = "0 0 11 * 1/3 *")
 	public void generateReport1() {
 		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
 	}
