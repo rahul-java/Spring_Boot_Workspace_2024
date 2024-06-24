@@ -293,12 +293,33 @@ public class ReportGenerateService {
 	public void generateReport1() {
 		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
 	}*/
-	
+
 	// Generate BankAccount Stmt for 3months at 11am
-	@Scheduled(cron = "0 0 11 * 1/3 *")
+	/*@Scheduled(cron = "0 0 11 * 1/3 *")
+	public void generateReport1() {
+		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
+	}*/
+
+	// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+	// @Scheduled(cron = "30 40 20 ? * 5#2") //2nd Friday of the Month { 5:Friday ,
+	// #2:2nd }
+	/*@Scheduled(cron = "30 40 20 ? * 1#4") //4th Monday of the Month { 1:Monday , #4:4th }
+	public void generateReport1() {
+		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
+	}*/
+
+	// 1st weekday of the month at midnight
+	/*@Scheduled(cron = "0 0 0 1W * *")
+	public void generateReport1() {
+		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
+	}*/
+
+	// Last weekday of the month at midnight
+	@Scheduled(cron = "0 0 0 LW * *")
 	public void generateReport1() {
 		System.out.println("ReportGenerateService.generateReport1() ::: " + new Date());
 	}
-	
-	//crontab.guru
+
+	// crontab.guru
 }
