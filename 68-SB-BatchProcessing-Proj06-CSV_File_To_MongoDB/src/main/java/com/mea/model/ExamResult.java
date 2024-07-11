@@ -17,7 +17,7 @@ public class ExamResult {
 
 	@Id
 	private Integer id;
-	private Date dob;
+	private String dob;
 	private Float percentage;
 	private Integer semester;
 }
