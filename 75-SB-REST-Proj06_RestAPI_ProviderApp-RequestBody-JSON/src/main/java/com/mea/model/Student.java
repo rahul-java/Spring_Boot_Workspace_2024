@@ -1,5 +1,7 @@
 package com.mea.model;
 
+import java.time.LocalDateTime;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,5 +17,6 @@ public class Student {
 	private String sname;
 	private String sadd;
 	private Float avg;
+	private LocalDateTime dob;
 	
 }
