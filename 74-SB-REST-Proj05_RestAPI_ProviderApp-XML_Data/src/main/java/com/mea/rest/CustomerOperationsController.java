@@ -71,4 +71,18 @@ public class CustomerOperationsController {
 		return new ResponseEntity<List<Customer>>(List.of(customer1,customer2,customer3,customer4,customer5,customer6),HttpStatus.OK);
 	}
 	
+	@GetMapping("/report3")
+	public Customer showReports3(){
+		
+		System.out.println("CustomerOperationsController.showReports3()");
+		
+		Customer customer = new Customer();
+		customer.setCno(101);
+		customer.setCname("Raja");
+		customer.setCaddress("New Delhi");
+		customer.setBillAmt(7500.50f);
+		
+		return customer;
+	}
+	
 }
