@@ -46,13 +46,26 @@ public class TouristMgmtServiceImpl implements ITouristMgmtService {
 	@Override
 	public String updateBudgetById(Integer tid, Double hikePercentage) {
 		
-		return null;
+		Optional<Tourist> optional = touristRepo.findById(tid);
+		if(optional.isPresent())
+		{
+			Tourist tourist = optional.get();
+			tourist.setTbudget(tourist.getTbudget()*hikePercentage/100.0f);
+			touristRepo.save(tourist);
+			return "Tourist Budget is UPDATED SUCCESSFULLY. Budget : "+tourist.getTbudget();
+		}
+		return "Tourist is not Found for Budget UPDATION";
 	}
 
 	@Override
 	public String deleteTouristById(Integer tid) {
-		
-		return null;
+		Optional<Tourist> optional = touristRepo.findById(tid);
+		if(optional.isPresent())
+		{
+			touristRepo.deleteById(tid);
+			return "Tourist Details are DELETED SUCCESSFULLY... ";
+		}
+		return "Tourist is not Found for Deletion";
 	}
 
 }
