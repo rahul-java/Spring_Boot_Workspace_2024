@@ -50,7 +50,7 @@ public class TouristMgmtServiceImpl implements ITouristMgmtService {
 		if(optional.isPresent())
 		{
 			Tourist tourist = optional.get();
-			tourist.setTbudget(tourist.getTbudget()*hikePercentage/100.0f);
+			tourist.setTbudget(tourist.getTbudget()+tourist.getTbudget()*hikePercentage/100.0);
 			touristRepo.save(tourist);
 			return "Tourist Budget is UPDATED SUCCESSFULLY. Budget : "+tourist.getTbudget();
 		}
