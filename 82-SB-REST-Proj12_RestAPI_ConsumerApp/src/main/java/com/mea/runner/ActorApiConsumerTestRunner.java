@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-@Component
+//@Component
 public class ActorApiConsumerTestRunner implements CommandLineRunner {
 
 	@Autowired
@@ -21,13 +21,14 @@ public class ActorApiConsumerTestRunner implements CommandLineRunner {
 		String baseUrl="http://localhost:4041/providerApp/actor-api/wish";
 		//String baseUrl="http://localhost:8080/81-SB-REST-Proj12_RestAPI_ProviderApp/actor-api/wish";
 		
-		//send get mode req to consumer
-		/*
+		//send get mode req to consumer by getForEntity
+		
 		ResponseEntity<String> responseEntity = restTemplate.getForEntity(baseUrl, String.class);
 		System.out.println("Response Content ::: "+responseEntity.getBody());
 		System.out.println("Response Status Code ::: "+responseEntity.getStatusCode());
-		*/
-
+		
+		//getForObject
+		
 		String response = restTemplate.getForObject(baseUrl, String.class);
 		System.out.println("Response Content ::: "+response);		
 		
